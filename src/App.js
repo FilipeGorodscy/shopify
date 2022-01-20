@@ -9,7 +9,10 @@ const App = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const { data } = await axios.get(process.env.REACT_APP_NASA_URL);
+      // Exposing API Key for the purpose of the challenge, otherwise would hide under a .env file
+      const { data } = await axios.get(
+        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=2cq3Ijgxe7IvwdjFYrmoh3xWMT8fLmBh1CfMmRfY"
+      );
       setPhotos(data.photos);
     };
     fetchPosts();
