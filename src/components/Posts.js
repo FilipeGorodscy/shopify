@@ -12,12 +12,13 @@ const Posts = ({ posts }) => {
 
   return (
     <Box>
-      {posts.map(post => (
+      {posts.map((post, i) => (
         <Post
+          // Using index here because post.id is equal in both elements
+          key={i}
           post={post}
           toggleLike={toggleLike}
           handleToggleLike={handleToggleLike}
-          key={posts.id}
         />
       ))}
     </Box>
